@@ -1,0 +1,117 @@
+plugin:
+  name: b2b-sellers/core
+  label: 'B2BSellers Core plugin'
+dump:
+  tables:
+    b2bsellers_budget:
+      rewrite:
+        internal_comment: "'redacted'"
+    b2bsellers_cart_extension:
+      nodata: true
+    b2bsellers_context_session:
+      nodata: true
+    b2bsellers_customer_activity:
+      nodata: true
+    b2bsellers_customer_cost_center:
+      rewrite:
+        comment: "'redacted'"
+    b2bsellers_customer_order_approval:
+      rewrite:
+        last_edit: "'{}'"
+    b2bsellers_employee:
+      rewrite:
+        department: "'redacted'"
+        email: email
+        first_name: first_name
+        last_name: last_name
+        legacy_encoder: "''"
+        legacy_password: "''"
+        mobile_phone_number: phone_number
+        password: "'***'"
+        password_activation: "'***'"
+        phone_number: phone_number
+        title: "''"
+    b2bsellers_employee_invitation:
+      nodata: true
+    b2bsellers_event:
+      rewrite:
+        order_recipients: "'[]'"
+    b2bsellers_event_participant:
+      rewrite:
+        birthday: "'1970-01-01'"
+        email: email
+        first_name: first_name
+        last_name: last_name
+    b2bsellers_event_waiting_list_participant:
+      rewrite:
+        birthday: "'1970-01-01'"
+        email: email
+        name: faker.Person.Name()
+    b2bsellers_line_item_information:
+      rewrite:
+        full_name: faker.Person.Name()
+    b2bsellers_offer:
+      rewrite:
+        commission: "'redacted'"
+        customer_comment: "'redacted'"
+        deep_link_code: "'***'"
+        footer_text: "'redacted'"
+        header_text: "'redacted'"
+        mail_cc: "'redacted@example.com'"
+        mail_to: "'redacted@example.com'"
+        matchcode: "'redacted'"
+    b2bsellers_offer_address:
+      rewrite:
+        additional_address_line1: "'redacted'"
+        additional_address_line2: "'redacted'"
+        city: city
+        company: company
+        department: "'redacted'"
+        first_name: first_name
+        last_name: last_name
+        phone_number: phone_number
+        street: street
+        title: "''"
+        vat_id: "'redacted'"
+        zipcode: zipcode
+    b2bsellers_offer_customer:
+      rewrite:
+        company: company
+        email: email
+        first_name: first_name
+        last_name: last_name
+        remote_address: remote_address
+        title: "''"
+    b2bsellers_offer_item:
+      rewrite:
+        comment: "'redacted'"
+        description: "'redacted'"
+    b2bsellers_order_approval:
+      rewrite:
+        cart_payload: "'redacted'"
+        creator_name: faker.Person.Name()
+        customer_comment: "'redacted'"
+    b2bsellers_order_approval_activity:
+      nodata: true
+    b2bsellers_order_approval_address:
+      rewrite:
+        additional_address_line1: "'redacted'"
+        additional_address_line2: "'redacted'"
+        city: city
+        company: company
+        department: "'redacted'"
+        first_name: first_name
+        last_name: last_name
+        phone_number: phone_number
+        street: street
+        title: "''"
+        vat_id: "'redacted'"
+        zipcode: zipcode
+    b2bsellers_passwordless_login:
+      nodata: true
+    b2bsellers_product_list_item:
+      rewrite:
+        comment: "'redacted'"
+    b2bsellers_thread_message:
+      rewrite:
+        message: "'redacted'"
