@@ -28,6 +28,90 @@ dump:
     b2b_order_employee:
       first_name: '{{- faker.Person.FirstName() -}}'
       last_name: '{{- faker.Person.LastName() -}}'
+    b2bsellers_budget:
+      internal_comment: "'redacted'"
+    b2bsellers_customer_cost_center:
+      comment: "'redacted'"
+    b2bsellers_customer_order_approval:
+      last_edit: "'{}'"
+    b2bsellers_employee:
+      department: "'redacted'"
+      email: '{{- faker.Internet.Email() -}}'
+      first_name: '{{- faker.Person.FirstName() -}}'
+      last_name: '{{- faker.Person.LastName() -}}'
+      legacy_encoder: "''"
+      legacy_password: "''"
+      mobile_phone_number: '{{- faker.Phone.Number() -}}'
+      password: "'***'"
+      password_activation: "'***'"
+      phone_number: '{{- faker.Phone.Number() -}}'
+      title: "''"
+    b2bsellers_event:
+      order_recipients: "'[]'"
+    b2bsellers_event_participant:
+      birthday: "'1970-01-01'"
+      email: '{{- faker.Internet.Email() -}}'
+      first_name: '{{- faker.Person.FirstName() -}}'
+      last_name: '{{- faker.Person.LastName() -}}'
+    b2bsellers_event_waiting_list_participant:
+      birthday: "'1970-01-01'"
+      email: '{{- faker.Internet.Email() -}}'
+      name: '{{- faker.Person.Name() -}}'
+    b2bsellers_line_item_information:
+      full_name: '{{- faker.Person.Name() -}}'
+    b2bsellers_offer:
+      commission: "'redacted'"
+      customer_comment: "'redacted'"
+      deep_link_code: "'***'"
+      footer_text: "'redacted'"
+      header_text: "'redacted'"
+      mail_cc: "'redacted@example.com'"
+      mail_to: "'redacted@example.com'"
+      matchcode: "'redacted'"
+    b2bsellers_offer_address:
+      additional_address_line1: "'redacted'"
+      additional_address_line2: "'redacted'"
+      city: '{{- faker.Address.City() -}}'
+      company: '{{- faker.Person.Name() -}}'
+      department: "'redacted'"
+      first_name: '{{- faker.Person.FirstName() -}}'
+      last_name: '{{- faker.Person.LastName() -}}'
+      phone_number: '{{- faker.Phone.Number() -}}'
+      street: '{{- faker.Address.StreetAddress() -}}'
+      title: "''"
+      vat_id: "'redacted'"
+      zipcode: '{{- faker.Address.PostCode() -}}'
+    b2bsellers_offer_customer:
+      company: '{{- faker.Person.Name() -}}'
+      email: '{{- faker.Internet.Email() -}}'
+      first_name: '{{- faker.Person.FirstName() -}}'
+      last_name: '{{- faker.Person.LastName() -}}'
+      remote_address: '{{- faker.Internet.Ipv4() -}}'
+      title: "''"
+    b2bsellers_offer_item:
+      comment: "'redacted'"
+      description: "'redacted'"
+    b2bsellers_order_approval:
+      cart_payload: "'redacted'"
+      creator_name: '{{- faker.Person.Name() -}}'
+      customer_comment: "'redacted'"
+    b2bsellers_order_approval_address:
+      additional_address_line1: "'redacted'"
+      additional_address_line2: "'redacted'"
+      city: '{{- faker.Address.City() -}}'
+      company: '{{- faker.Person.Name() -}}'
+      department: "'redacted'"
+      first_name: '{{- faker.Person.FirstName() -}}'
+      last_name: '{{- faker.Person.LastName() -}}'
+      phone_number: '{{- faker.Phone.Number() -}}'
+      street: '{{- faker.Address.StreetAddress() -}}'
+      title: "''"
+      vat_id: "'redacted'"
+      zipcode: '{{- faker.Address.PostCode() -}}'
+    b2bsellers_product_list_item:
+      comment: "'redacted'"
+    b2bsellers_thread_message:
+      message: "'redacted'"
     cbax_analytics_pool:
       remote_address: '{{- faker.Internet.Ipv4() -}}'
     coe_reserved_basket:
@@ -109,6 +193,12 @@ dump:
     - acris_staging
     - acris_staging_log
     - acris_staging_log_translation
+    - b2bsellers_cart_extension
+    - b2bsellers_context_session
+    - b2bsellers_customer_activity
+    - b2bsellers_employee_invitation
+    - b2bsellers_order_approval_activity
+    - b2bsellers_passwordless_login
     - dreisc_seo_redirect_import_export_log
     - moorl_location_cache
     - swag_newsletter_send_log
