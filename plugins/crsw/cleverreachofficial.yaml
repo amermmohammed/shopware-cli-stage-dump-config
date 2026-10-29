@@ -1,0 +1,25 @@
+plugin:
+  name: crsw/cleverreachofficial
+  label: 'CleverReach Official'
+dump:
+  tables:
+    cleverreach_archived_entity:
+      nodata: true
+    cleverreach_automation_entity:
+      nodata: true
+    cleverreach_buffer_configuration_entity:
+      nodata: true
+    cleverreach_config:
+      nodata: true
+    cleverreach_configs:
+      nodata: true
+    cleverreach_data_resources_entity:
+      nodata: true
+    cleverreach_entity:
+      nodata: true
+    cleverreach_events_buffer_entity:
+      nodata: true
+    cleverreach_processes:
+      nodata: true
+    cleverreach_queues:
+      nodata: true

@@ -1,0 +1,18 @@
+plugin:
+  name: kiener/mollie-payments-plugin
+  label: 'Mollie Payments'
+dump:
+  tables:
+    mollie_subscription_address:
+      rewrite:
+        first_name: first_name
+        last_name: last_name
+        company: "'redacted'"
+        department: "'redacted'"
+        vat_id: "'redacted'"
+        street: street
+        zipcode: zipcode
+        city: city
+        additional_address_line1: street
+        additional_address_line2: street
+        phone_number: phone_number

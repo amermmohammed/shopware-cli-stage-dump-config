@@ -1,0 +1,16 @@
+plugin:
+  name: tmms/cms-element-period-request-form
+  label: 'TMMS Period Request Form'
+dump:
+  tables:
+    periodrequestform:
+      rewrite:
+        firstname: first_name
+        lastname: last_name
+        email: email
+        phone: phone_number
+        street: street
+        zipcode: zipcode
+        city: city
+        comment: "'redacted'"
+        freeinput: "'redacted'"

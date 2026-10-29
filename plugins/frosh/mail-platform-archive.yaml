@@ -1,0 +1,9 @@
+plugin:
+  name: frosh/mail-platform-archive
+  label: 'Frosh Mail Archive'
+dump:
+  tables:
+    frosh_mail_archive:
+      nodata: true
+    frosh_mail_archive_attachment:
+      nodata: true
