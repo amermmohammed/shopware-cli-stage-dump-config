@@ -22,9 +22,37 @@ final class DumpConfigBuilder
         $output = ['dump' => array_filter([
             'rewrite' => $merged['rewrite'] !== [] ? $merged['rewrite'] : null,
             'nodata' => $merged['nodata'] !== [] ? $merged['nodata'] : null,
+            'where' => $this->buildWhere() ?: null,
         ])];
 
         return Yaml::dump($output, 6, 2, Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function buildWhere(): array
+    {
+        $file = $this->projectRoot . '/config/fragments/system-config-exclusions.yaml';
+        if (!is_file($file)) {
+            return [];
+        }
+
+        $keys = Yaml::parseFile($file)['system_config_excluded_keys'] ?? [];
+        if (!\is_array($keys) || $keys === []) {
+            return [];
+        }
+
+        $quoted = [];
+        foreach ($keys as $key) {
+            if (!\is_string($key) || $key === '') {
+                throw new \RuntimeException('system_config_excluded_keys must contain non-empty strings');
+            }
+            $quoted[] = "'" . str_replace("'", "''", $key) . "'";
+        }
+        sort($quoted);
+
+        return ['system_config' => sprintf('configuration_key NOT IN (%s)', implode(', ', $quoted))];
     }
 
     /**
