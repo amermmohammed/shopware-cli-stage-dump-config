@@ -1,0 +1,19 @@
+# system_config.configuration_key values whose rows are excluded from the dump (credentials/tokens).
+# Merged by bin/build-dump-config into dump.where.system_config.
+
+system_config_excluded_keys:
+  - DIScoGA4.config.googleTagId
+  - MolliePayments.config.liveApiKey
+  - SwagPayPal.settings.clientId
+  - SwagPayPal.settings.clientSecret
+  - SwagPayPal.settings.webhookExecuteToken
+  - SwagPayPal.settings.webhookId
+  - SwagPlatformSecurity.config.allowUnencryptedWebhookTraffic
+  - WbmTagManagerAnalytics.config.containerld
+  - WeedesignPageSpeed.config.changed_htaccess
+  - WeedesignPageSpeed.config.email
+  - WeedesignPageSpeed.config.htaccess
+  - cobby.config.cobbyIntegrationId
+  - core.basicInformation.address
+  - core.mailerSettings.disableDelivery
+  - core.webhook.entryLifetimeSeconds
