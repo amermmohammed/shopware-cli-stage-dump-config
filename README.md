@@ -21,6 +21,39 @@ include:
 
 ## Create a GDPR dump
 
+From your Shopware 6 project root:
+
+**1. Install [shopware-cli](https://developer.shopware.com/docs/products/cli/installation.html)**
+
+```bash
+# macOS
+brew install shopware/tap/shopware-cli
+
+# Debian/Ubuntu
+curl -1sLf 'https://dl.cloudsmith.io/public/friendsofshopware/stable/setup.deb.sh' | sudo -E bash
+sudo apt install shopware-cli
+```
+
+**2. Download the community config**
+
+```bash
+curl -fsSL -o shopware-gdpr-dump.yml \
+  https://raw.githubusercontent.com/winkelwagen-de/shopware-cli-stage-dump-config/main/dist/shopware-gdpr-dump.yml
+```
+
+**3. Add it to `.shopware-project.yml`**
+
+Create the file (or add an `include` entry if it already exists):
+
+```yaml
+include:
+  - shopware-gdpr-dump.yml
+```
+
+If you installed via Composer (see [Install](#install) above), point `include` at `vendor/winkelwagen/shopware-gdpr-dump/dist/shopware-gdpr-dump.yml` instead.
+
+**4. Run the dump**
+
 Always pass both flags so Shopware core data is anonymized and ephemeral tables are stripped:
 
 ```bash

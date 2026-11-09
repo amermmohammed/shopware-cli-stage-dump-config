@@ -1,3 +1,7 @@
 plugin:
   name: redgecko/magnalister
   label: 'magnalister: To connect your shop to Amazon, eBay and ...'
+dump:
+  tables:
+    magnalister_config:
+      nodata: true
