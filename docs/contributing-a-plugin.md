@@ -48,7 +48,7 @@ Authoring configs use shorthand that `bin/build-dump-config` expands to shopware
 
 | Shorthand | Expands to |
 |-----------|------------|
-| `email` | `faker.Internet.Email()` |
+| `email` | `faker.Internet.SafeEmail()` |
 | `first_name` | `faker.Person.FirstName()` |
 | `last_name` | `faker.Person.LastName()` |
 | `phone_number` | `faker.Phone.Number()` |
