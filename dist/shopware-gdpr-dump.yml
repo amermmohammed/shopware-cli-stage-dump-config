@@ -5,7 +5,7 @@ dump:
     acris_cookie_translation:
       description: "'redacted'"
     acris_staging:
-      admin_mail: '{{- faker.Internet.Email() -}}'
+      admin_mail: '{{- faker.Internet.SafeEmail() -}}'
       db_password: "'***'"
     acris_staging_log_translation:
       message: "'redacted'"
@@ -36,7 +36,7 @@ dump:
       last_edit: "'{}'"
     b2bsellers_employee:
       department: "'redacted'"
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       first_name: '{{- faker.Person.FirstName() -}}'
       last_name: '{{- faker.Person.LastName() -}}'
       legacy_encoder: "''"
@@ -50,12 +50,12 @@ dump:
       order_recipients: "'[]'"
     b2bsellers_event_participant:
       birthday: "'1970-01-01'"
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       first_name: '{{- faker.Person.FirstName() -}}'
       last_name: '{{- faker.Person.LastName() -}}'
     b2bsellers_event_waiting_list_participant:
       birthday: "'1970-01-01'"
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       name: '{{- faker.Person.Name() -}}'
     b2bsellers_line_item_information:
       full_name: '{{- faker.Person.Name() -}}'
@@ -83,7 +83,7 @@ dump:
       zipcode: '{{- faker.Address.PostCode() -}}'
     b2bsellers_offer_customer:
       company: '{{- faker.Person.Name() -}}'
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       first_name: '{{- faker.Person.FirstName() -}}'
       last_name: '{{- faker.Person.LastName() -}}'
       remote_address: '{{- faker.Internet.Ipv4() -}}'
@@ -119,11 +119,11 @@ dump:
     dreisc_seo_redirect_import_export_file:
       access_token: "'***'"
     esmx_ktconnector_blacklist:
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
     fgits_tickets_ticket:
-      personalized_email: '{{- faker.Internet.Email() -}}'
+      personalized_email: '{{- faker.Internet.SafeEmail() -}}'
     hochwarth_sold_out_mail:
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
     mollie_subscription_address:
       additional_address_line1: '{{- faker.Address.StreetAddress() -}}'
       additional_address_line2: '{{- faker.Address.StreetAddress() -}}'
@@ -137,10 +137,10 @@ dump:
       vat_id: "'redacted'"
       zipcode: '{{- faker.Address.PostCode() -}}'
     newsletter_sender:
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       password: "'***'"
     newsletter_sender_translation:
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       password: "'***'"
     order_return:
       internal_comment: "'redacted'"
@@ -151,7 +151,7 @@ dump:
     periodrequestform:
       city: '{{- faker.Address.City() -}}'
       comment: "'redacted'"
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       firstname: '{{- faker.Person.FirstName() -}}'
       freeinput: "'redacted'"
       lastname: '{{- faker.Person.LastName() -}}'
@@ -187,14 +187,14 @@ dump:
       subscription_token: "'***'"
     subscription_customer:
       company: '{{- faker.Person.Name() -}}'
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       first_name: '{{- faker.Person.FirstName() -}}'
       last_name: '{{- faker.Person.LastName() -}}'
       remote_address: '{{- faker.Internet.Ipv4() -}}'
     subscription_plan_translation:
       description: "'redacted'"
     swag_newsletter_recipient_custom:
-      email: '{{- faker.Internet.Email() -}}'
+      email: '{{- faker.Internet.SafeEmail() -}}'
       first_name: '{{- faker.Person.FirstName() -}}'
       last_name: '{{- faker.Person.LastName() -}}'
       phone_number: '{{- faker.Phone.Number() -}}'
@@ -234,7 +234,10 @@ dump:
     - dreisc_seo_redirect_import_export_log
     - frosh_mail_archive
     - frosh_mail_archive_attachment
+    - magnalister_config
     - moorl_location_cache
     - swag_newsletter_send_log
     - swag_paypal_pos_sales_channel_run_log
     - swag_sequence_webhook_event_log
+  where:
+    system_config: "configuration_key NOT IN ('DIScoGA4.config.googleTagId', 'MolliePayments.config.liveApiKey', 'SwagPayPal.settings.clientId', 'SwagPayPal.settings.clientSecret', 'SwagPayPal.settings.webhookExecuteToken', 'SwagPayPal.settings.webhookId', 'SwagPlatformSecurity.config.allowUnencryptedWebhookTraffic', 'WbmTagManagerAnalytics.config.containerld', 'WeedesignPageSpeed.config.changed_htaccess', 'WeedesignPageSpeed.config.email', 'WeedesignPageSpeed.config.htaccess', 'cobby.config.cobbyIntegrationId', 'core.basicInformation.address', 'core.mailerSettings.disableDelivery', 'core.webhook.entryLifetimeSeconds')"
