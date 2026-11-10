@@ -38,21 +38,40 @@ final class DumpConfigBuilder
             return [];
         }
 
-        $keys = Yaml::parseFile($file)['system_config_excluded_keys'] ?? [];
-        if (!\is_array($keys) || $keys === []) {
-            return [];
+        $parsed = Yaml::parseFile($file);
+        $keys = $this->quoteList($parsed['system_config_excluded_keys'] ?? [], 'system_config_excluded_keys');
+        $patterns = $this->quoteList($parsed['system_config_excluded_key_patterns'] ?? [], 'system_config_excluded_key_patterns');
+
+        $conditions = [];
+        if ($keys !== []) {
+            $conditions[] = sprintf('configuration_key NOT IN (%s)', implode(', ', $keys));
+        }
+        foreach ($patterns as $pattern) {
+            $conditions[] = sprintf('configuration_key NOT LIKE %s', $pattern);
+        }
+
+        return $conditions === [] ? [] : ['system_config' => implode(' AND ', $conditions)];
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function quoteList(mixed $values, string $name): array
+    {
+        if (!\is_array($values)) {
+            throw new \RuntimeException(sprintf('%s must be a list', $name));
         }
 
         $quoted = [];
-        foreach ($keys as $key) {
-            if (!\is_string($key) || $key === '') {
-                throw new \RuntimeException('system_config_excluded_keys must contain non-empty strings');
+        foreach ($values as $value) {
+            if (!\is_string($value) || $value === '') {
+                throw new \RuntimeException(sprintf('%s must contain non-empty strings', $name));
             }
-            $quoted[] = "'" . str_replace("'", "''", $key) . "'";
+            $quoted[] = "'" . str_replace("'", "''", $value) . "'";
         }
         sort($quoted);
 
-        return ['system_config' => sprintf('configuration_key NOT IN (%s)', implode(', ', $quoted))];
+        return $quoted;
     }
 
     /**
