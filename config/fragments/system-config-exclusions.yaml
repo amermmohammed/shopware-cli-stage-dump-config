@@ -2,13 +2,31 @@
 # Merged by bin/build-dump-config into dump.where.system_config.
 
 system_config_excluded_keys:
+  - BowPlatformMailchimpMailer.config.mailchimpUser
   - DIScoGA4.config.googleTagId
+  - IntediaDoofinderSW6.config.apiKey
+  - KlarnaPayment.settings.ApiPassword
+  - KlarnaPayment.settings.apiUsername
+  - MndCookie.config.custom1Integration
+  - MndCookie.config.custom2Integration
+  - MndCookie.config.custom3Integration
+  - MndCookie.config.custom4Integration
+  - MndCookie.config.custom5Integration
+  - MndCookie.config.gaID
   - MolliePayments.config.liveApiKey
+  - MolliePayments.config.liveProfileId
+  - Sendinblue.config.accessKey
+  - Sendinblue.config.apiKey
+  - Sendinblue.config.secretAccessKey
+  - Sendinblue.config.userConnectionId
   - SwagPayPal.settings.clientId
   - SwagPayPal.settings.clientSecret
   - SwagPayPal.settings.webhookExecuteToken
   - SwagPayPal.settings.webhookId
   - SwagPlatformSecurity.config.allowUnencryptedWebhookTraffic
+  - TrustedShops.config.tsExpertTrustbadeCode
+  - TrustedShops.config.tsId
+  - WbmTagManagerAnalytics.config.containerId
   - WbmTagManagerAnalytics.config.containerld
   - WeedesignPageSpeed.config.changed_htaccess
   - WeedesignPageSpeed.config.email
@@ -17,3 +35,9 @@ system_config_excluded_keys:
   - core.basicInformation.address
   - core.mailerSettings.disableDelivery
   - core.webhook.entryLifetimeSeconds
+  - trustedShopsApp.config.clientId
+  - trustedShopsApp.config.clientSecret
+
+# SQL LIKE patterns (% = any chars) matched against configuration_key; matching rows are excluded too.
+system_config_excluded_key_patterns:
+  - trustedShopsApp.config.%.trustbadgeConfiguration
