@@ -1,0 +1,14 @@
+plugin:
+  name: shopware/core
+  label: 'Shopware core (credentials not covered by --anonymize)'
+dump:
+  tables:
+    customer:
+      rewrite:
+        password: "'***'"
+    user:
+      rewrite:
+        password: "'***'"
+    integration:
+      rewrite:
+        secret_access_key: "'***'"
